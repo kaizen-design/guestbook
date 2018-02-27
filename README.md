@@ -1,2 +1,2 @@
-# guestbook
+# Guestbook
 A guestbook app
