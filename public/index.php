@@ -5,18 +5,26 @@ require_once '../vendor/autoload.php';
 // Using Medoo namespace
 use Medoo\Medoo;
 
+$file = '../storage/database.db';
+if (is_writable('../storage/database.local.db')) {
+    $file = '../storage/database.local.db';
+}
+
 $database = new Medoo([
     'database_type' => 'sqlite',
-    'database_file' => '../storage/database.db'
+    'database_file' => $file
 ]);
 
 $comment = new Kaizen\Comment($database);
-$comment->setEmail('denis@kaizen-design.ru')
-    ->setName('Denis Bondarchuk')
-    //->setComment('It works!')
-    ->setComment('Hooray! Saving comments work!')
-    ->save();
-dump($database);
+try {
+    $comment->setEmail('denis@kaizen-design.ru')
+            ->setName('Denis Bondarchuk')
+            ->setComment('Hooray! Saving comments work!')
+            ->save();
+} catch (Exception $e) {
+
+}
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
