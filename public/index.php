@@ -10,6 +10,13 @@ $database = new Medoo([
     'database_file' => '../storage/database.db'
 ]);
 
+$comment = new Kaizen\Comment($database);
+$comment->setEmail('denis@kaizen-design.ru')
+    ->setName('Denis Bondarchuk')
+    //->setComment('It works!')
+    ->setComment('Hooray! Saving comments work!')
+    ->save();
+dump($database);
 ?>
 <!doctype html>
 <html class="no-js" lang="">

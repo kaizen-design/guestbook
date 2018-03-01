@@ -9,6 +9,11 @@
             "email": "denis@kaizen-design.ru"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Kaizen\\": "src"
+        }
+    },
     "require": {
         "catfan/medoo": "^1.5"
     },
